@@ -10,11 +10,44 @@
   <ItemGroup>
     <None Remove="home.png" />
     <None Remove="Satisfactory-EA-Logo-1500w-e1554491014882.png" />
+    <None Remove="UserControll\home.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="home.png" />
-    <Resource Include="Satisfactory-EA-Logo-1500w-e1554491014882.png" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Bilder\home.png" />
+    <Resource Include="Bilder\Satisfactory-EA-Logo-1500w-e1554491014882.png" />
+    <Resource Include="UserControll\home.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DB\MyDBDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MyDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DB\MyDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MyDBDataSet.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

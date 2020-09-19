@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HeadGaming_wpf_.UserControll;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -14,13 +15,18 @@ using System.Windows.Shapes;
 namespace HeadGaming_wpf_
 {
     /// <summary>
-    /// Interaktionslogik für PageMenu.xaml
+    /// Interaktionslogik für UCMenu.xaml
     /// </summary>
-    public partial class PageMenu : Page
+    public partial class UCMenu : UserControl
     {
-        public PageMenu()
+        public UCMenu()
         {
             InitializeComponent();
+        }
+
+        private void ButtonSatisfactory(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new UCSatisfactory());
         }
     }
 }

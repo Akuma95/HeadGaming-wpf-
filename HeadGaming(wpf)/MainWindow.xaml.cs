@@ -1,5 +1,9 @@
-﻿using System;
+﻿using HeadGaming_wpf_.DB;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +27,24 @@ namespace HeadGaming_wpf_
         public MainWindow()
         {
             InitializeComponent();
-            PageMenu pageMenu = new PageMenu();
-            this.Content = pageMenu;
+            Switcher.pageSwitcher = this;
+            Switcher.Switch(new UCMenu());
+        }
+
+        public void Navigate(UserControl nextPage)
+        {
+            this.Content = nextPage;
+        }
+
+        public void Navigate(UserControl nextPage, object state)
+        {
+            this.Content = nextPage;
+            ISwichable s = nextPage as ISwichable;
+
+            if (s != null)
+                s.UtilizeState(state);
+            else
+                throw new ArgumentException("NextPage ist kein ISwitchable!" + nextPage.Name.ToString());
         }
     }
 
