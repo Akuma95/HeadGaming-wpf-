@@ -61,7 +61,7 @@ namespace HeadGaming_wpf_.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Repos\VisualStudio\HeadGaming(wpf)\HeadGaming(wpf)\MyDB.mdf;Integrated Security=True ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Repos\VisualStudio\HeadGaming(wpf)\HeadGaming(wpf)\DB\MyDB.mdf;Integrated Security=True ähnelt.
         /// </summary>
         internal static string Connection {
             get {

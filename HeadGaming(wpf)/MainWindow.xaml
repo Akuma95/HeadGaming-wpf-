@@ -5,8 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HeadGaming_wpf_"
         mc:Ignorable="d"
-        Title="HeadGaming" Height="436" Width="778">
-    <Grid>
-        <ContentControl x:Name="contentAria" Margin="0,0,0,285"></ContentControl>
-    </Grid>
+        Title="HeadGaming" Height="550" Width="815">
+    <Grid HorizontalAlignment="Center" Width="782" Margin="0,0,0,0"/>
 </Window>
