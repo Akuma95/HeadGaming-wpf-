@@ -33,7 +33,6 @@ namespace HeadGaming_wpf_.Rezepte
 
         /**
          * Holt dich aus der Datenbank das jeweilige Rezept und alle dazugehörigen Komponenten.
-         * 
          * string name - Der Name des Rezeptes
          */
         public ArrayList GetRezepte(string name)
@@ -41,16 +40,22 @@ namespace HeadGaming_wpf_.Rezepte
             ArrayList rezeptListe = new ArrayList();
             DataTable rezeptTable;
 
-            
-                
-                rezeptListe.Add("");
+            rezeptListe.Add("");
 
-            do
-            {
-                rezeptTable = _conn.GetDataTable("SELECT * FROM Rezepte WHERE name = " + name);
+            //do
+            //{
+                rezeptTable = _conn.GetDataTable("SELECT Rezept.name, isAlternative, productionTime, producedIn FROM Rezepte WHERE Rezept.name = " + name);
 
+                Rezepte rezept = new Rezepte();
 
-            } while ();
+                rezept.RezeptName = rezeptTable.Rows[0].ToString();
+                rezept.IsAlternative = rezeptTable.Rows[1].Equals(1);
+                rezept.ProductionTime = int.Parse(rezeptTable.Rows[2].ToString());
+                rezept.Fabrik = GetBuilding(rezeptTable.Rows[3].ToString());
+
+                DataTable rr = _conn.GetDataTable("SELECT ressourceName, ressourcePerMin, isOutput FROM RessourceRezept WHERE rezeptName = " + name);
+
+            //} while ();
 
             return rezeptListe;
         }
@@ -77,6 +82,16 @@ namespace HeadGaming_wpf_.Rezepte
             building.Energie = int.Parse(dt.Rows[1].ToString());
 
             return building;
+        }
+
+        private int CountRessources(string recepieName)
+        {
+            int count;
+
+            DataTable dt = _conn.GetDataTable("SELECT * FROM RessourceRezept WHERE rezeptName = " + recepieName);
+            count = dt.Rows.Count;
+
+            return count;
         }
     }
 }
