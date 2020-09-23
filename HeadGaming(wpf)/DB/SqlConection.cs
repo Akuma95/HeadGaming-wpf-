@@ -26,6 +26,16 @@ namespace HeadGaming_wpf_.DB
             _cs = cs;
         }
 
+        public bool IsOpen()
+        {
+            if (_con.State.Equals("Open"))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
         public SqlConnection Open(TextBlock feedbackLabel = null)
         {
             this._con = new SqlConnection(this._cs);

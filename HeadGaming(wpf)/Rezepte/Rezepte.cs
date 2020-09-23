@@ -6,23 +6,18 @@ namespace HeadGaming_wpf_.Rezepte
 {
 	public class Rezepte
 	{
-		private string rezeptName;
-		private string ressourcenName;
-		private string building;
+		public string RezeptName { get; set; }
+		public Ressource[] InputName { get; set; }
+		public Ressource[] OutputName { get; set; }
+		public Building Fabrik { get; set; }
+		public Rezepte Vorgaenger { get; set; }
+		public int RessourcePerMin { get; set; }
+		public int ProductionTime { get; set; }
 
-		private int ressourcePerMin;
-		private int productionTime;
+		public bool IsAlternative { get; set; }
 
-		private bool isOutput;
-		private bool isAlternative;
-
-		public Rezepte()
+		public Rezepte(string[] alternativen)
 		{
-		}
-
-		public string getRezeptname()
-		{
-			return rezeptName;
 		}
 	}
 }

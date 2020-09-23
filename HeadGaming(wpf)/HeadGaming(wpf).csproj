@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DB\MyDB - Kopieren.mdf" />
+    <None Remove="DB\MyDB - Kopieren_log.ldf" />
     <None Remove="home.png" />
     <None Remove="Satisfactory-EA-Logo-1500w-e1554491014882.png" />
     <None Remove="UserControll\home.png" />

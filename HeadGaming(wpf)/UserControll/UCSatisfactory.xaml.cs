@@ -111,7 +111,8 @@ namespace HeadGaming_wpf_.UserControll
             SqlConection conn = new SqlConection(Properties.Resources.Connection);
             conn.Open(this.TbFeedbackRecepi);
             int general = conn.SetData("INSERT INTO Rezept (name, isAlternative, productionTime, producedIn) VALUES ('" + name + "', " + isAlternative + ", " + Int32.Parse(productionTime) + ", '" + madeIn + "');", this.TbFeedbackRecepi);
-            if (isAlternative == 0)
+            DataTable testRes = conn.GetDataTable("SELECT " + name + " FROM Ressource");
+            if (isAlternative == 0 && testRes == null)
             {
                 int i = conn.SetData("INSERT INTO Ressource (name, isOre) VALUES ('" + name + "', 0);");
                 FillAll("Ressource", CbDeleteRessource, DgRessourcen, this.TbFeedbackRecepi);

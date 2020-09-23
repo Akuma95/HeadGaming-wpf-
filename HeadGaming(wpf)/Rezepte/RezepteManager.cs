@@ -15,12 +15,12 @@ namespace HeadGaming_wpf_.Rezepte
 
         public void addRezept(Rezepte rezept)
         {
-            rezepteListe.Add(rezept.getRezeptname(), rezept);
+            rezepteListe.Add(rezept.RezeptName, rezept);
         }
 
         public void removeRezept(Rezepte rezept)
         {
-            rezepteListe.Remove(rezept.getRezeptname());
+            rezepteListe.Remove(rezept.RezeptName);
         }
 
         public bool isRezeptExist(Rezepte rezept)
